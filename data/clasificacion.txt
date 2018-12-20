@@ -1,0 +1,104 @@
+1	Derechos Civiles
+1.1	Derecho a la vida
+	1.1.1	Muertos por organismos de seguridad
+	1.1.1.1	Disip
+	1.1.1.2	CICPC (PTJ)
+	1.1.1.3	PM
+	1.1.1.4	PE
+	1.1.1.5	FAN
+	1.1.1.6	GN
+	1.1.1.7	P. Municipal
+	1.1.1.8	Otros
+	1.1.1.9	Policia Nacional
+	1.1.2	Procesos Judiciales (Vida)
+	1.1.3	Caso Vargas
+	1.1.4	Caso El Amparo
+	1.1.5	Caso 27/28 de Febrero
+1.2	Derecho a la libertad personal
+	1.2.1	Detenciones arbitrarias
+	1.2.1.1	Detenciones masivas (mas de 10)
+	1.2.1.2	Detenciones Colectivas (menos de 10)
+	1.2.1.3	Detenciones en manifestaciones
+	1.2.1.4	Detenciones individualizadas
+	1.2.2	Presos Políticos
+	1.2.3	Recluta
+	1.2.4	Situación en calabozos de organismos policiales o militares
+	1.2.5	Desapariciones forzadas
+1.3	Derecho a la Integridad personal
+	1.3.1	Tortura
+	1.3.2	Tratos o penas crueles, inhumanas o degradantes
+	1.3.2.1	Tratos o penas crueles, inhumanas o degradantes en el contexto de manifestaciones pacíficas
+	1.3.3	Amenaza – amedrentamiento
+	1.3.4	Allanamiento sin orden judicial
+1.4	Derecho a la seguridad ciudadana	
+	1.4.1	Políticas y planes de seguridad (operativos y otros)
+	1.4.2	Cuerpos de seguridad del Estado
+	1.4.3         
+	1.4.4	Linchamientos
+	1.4.4.1	Intento de linchamiento
+	1.4.5	Enfrentamientos (saldo)
+1.7	Derecho a la libertad de expresión e información
+1.10	Derecho a la justicia	
+	1.10.1     Poder Judicial
+	1.10.1.1  Tribunales (TSJ y tribunales)
+	1.10.2     Ministerio Público (Fiscalía)
+	1.10.2.1  Defensoría del Pueblo
+2 Derechos Sociales	
+2.1	Derecho a la Salud
+	2.1.1	Situación
+	2.1.1.1	Centros de salud en crisis
+	2.1.1.2	Muertes por negligencia o falta de atención
+	2.1.1.3	Participación comunitaria
+	2.1.2	Políticas
+	2.1.2.1	Políticas presupuestarias
+	2.1.2.2	Políticas preventivas
+2.2	Derecho a la Educación
+	2.2.1	Situación
+	2.2.1.1	Centros educativos en    crisis
+	2.2.2	Políticas
+2.3	Derecho al trabajo
+	2.3.1	Derecho a huelga
+	2.3.2	Estabilidad laboral
+	2.3.3	Libertad sindical
+	2.3.4	Contratación colectiva
+	2.3.5	Salario y prestaciones sociales
+	2.3.6	Condiciones y medio ambiente de trabajo
+	2.3.7	Trabajo infantil
+2.6	Derecho a la seguridad social
+	2.6.1	Sistema de seguridad social
+	2.6.1.1	Instituto Venezolano de los Seguros Sociales
+	2.6.2	Jubilaciones y Pensiones
+2.8	Derecho a la Vivienda
+	2.8.1	Situación
+	2.8.1.1	Desalojos
+	2.8.1.2	Invasiones
+	2.8.2	Políticas
+2.9	Derecho de los Pueblos Indios
+	2.9.1	Situación
+	2.9.2	Políticas
+2.10	Derecho a la alimentación
+	2.10.1	Situación
+	2.10.2	Políticas
+3 Derechos Económicos
+3.1	Derecho a la tierra
+	3.1.1	Invasiones
+	3.1.1.2	Desalojos
+	3.1.2	Políticas
+3.2	Derecho al ambiente
+	3.2.1	Situación
+	3.2.2	Políticas
+4 Derechos Políticos
+4.3 Derecho a manifestar pacíficamente
+5	Actividades de las ONG nacionales e internacionales de ddhh en Venezuela
+	5.1	Defensores/ras de derechos humanos en Vzla, derechos laborales, y derecho a la tierra
+12	Participación
+11 Luchas populares
+11.9	Manifestaciones Violentas
+15	Provea en prensa
+	15.1	Foro por la vida
+	15.2	Otros espacios de articulación con Provea
+17	Zona Fronteriza
+18	Instancias internacionales de ddhh
+19	Leyes
+20	Estados de excepción
+CONTEXTO	Contexto
