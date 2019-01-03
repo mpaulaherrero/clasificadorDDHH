@@ -1,5 +1,6 @@
 import json
 import urllib.request
+import os.path as path
 from pylatex import Document, Section, Subsection, Command, StandAloneGraphic
 from pylatex.utils import bold, italic, NoEscape
 
@@ -35,7 +36,8 @@ for noticia in noticias:
     #bajar la imagen
     print('Bajando la imagen de ' + noticia["imagen"]) 
     img = noticia["id"] + "." + (noticia["imagen"].split("."))[-1]
-    urllib.request.urlretrieve(noticia["imagen"], img)
+    if not path.exists(img):
+        urllib.request.urlretrieve(noticia["imagen"], img)
     
     print('Creando pdf de ' + noticia["id"]) 
     # Basic document
@@ -61,11 +63,18 @@ for noticia in noticias:
     doc.append(bold('Palabras Claves: '))
     doc.append(noticia["palabrasClaves"]+ "\n")
     doc.append(bold('Derecho: '))
-    doc.append(noticia["derecho"] + ', ')
-    doc.append('Otros Derechos: ')
-    doc.append(noticia["otrosDerechos"]  + ', ')
-    doc.append('Sub Derechos: ')
-    doc.append(noticia["subDerechos"] + '\n')
+    doc.append(noticia["derecho"])
+    doc.append(', Otros Derechos: ')
+    if noticia["otrosDerechos"]:
+        doc.append(noticia["otrosDerechos"])
+    else:
+        doc.append('NO_TIENE')    
+    doc.append(', Sub Derechos: ')
+    if noticia["subDerechos"]:
+        doc.append(noticia["subDerechos"])
+    else:
+        doc.append('NO_TIENE')
+    doc.append('\n')    
     doc.append(bold('EP: '))
     doc.append(noticia["EP"]+ "\n\n")
     
