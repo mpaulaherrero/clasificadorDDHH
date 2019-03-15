@@ -2,8 +2,8 @@ import os
 import csv
 from tika import parser
 
-dir = "/Users/mariapaulaherrero/Desktop/MDproyecto/dataPDF/toda"
-csvFile = "/Users/mariapaulaherrero/Desktop/MDproyecto/dataPDF/data.csv"
+dir = "/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/dataPDF/toda"
+csvFile = "/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/dataPDF/data.csv"
 
 #periodicos = ["EN", "EU", "UN", "LR", "RE", "ENP", "QD", "EM", "Question", "LRE", "TAL", "2001", "AJ", "OP", "Vea"]
 periodicos = ["EN", "EU"]
@@ -109,6 +109,7 @@ for elemento in contenido:
 for row in rows:
     data = []
     #["No.", "Nombre archivo", "Fecha", "Titular", "Periodico", "Fecha Periodico", "URL", "Derecho PPal", "Otros Derechos", "SubDerechos", "CONTEXTO"]
+    print(row["Nombre archivo"])
     data.append(row["No."])
     data.append(row["Nombre archivo"])
     data.append(row["Fecha"])

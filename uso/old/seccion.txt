@@ -1,0 +1,31 @@
+EN
+	Entretenimiento
+	Arte
+	EE UU
+	Politica
+	
+EU	
+	entretenimiento	
+	internacional
+	el-universal
+	politica
+	
+
+Filtrar secciones 
+Agregar fecha al nombre de cvs
+
+3.2
+	actual
+	ademas
+	agreg
+	antoni
+	arma
+	arremet
+	asegur
+	asesin
+	año
+	bal
+	blanc
+	boliv - 0.181
+	brasil
+	camin

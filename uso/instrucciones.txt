@@ -1,0 +1,29 @@
+1)Se debe instalar python3 y las siguientes librerias:
+
+pip3 install tika
+pip3 install requests	
+pip3 install python-dateutil
+pip3 install pylatex
+
+2) Para generar los PDFS se debe tener instalado un compilador de Latex
+	sudo apt-get install latexmk
+   o para mac:
+	brew cask install mactex
+
+3) Se deben colocar los script en algun directorio de la computadora, por ejemplo:
+	mkdir /Users/mariapaulaherrero/Desktop/MDproyecto/
+	mkdir /Users/mariapaulaherrero/Desktop/MDproyecto/data
+	
+	cd /Users/mariapaulaherrero/Desktop/MDproyecto/
+	cp /Users/mariapaulaherrero/Desktop/entrega/python/categorizarDDHHCatCsv.py .
+	cp /Users/mariapaulaherrero/Desktop/entrega/python/categorizarDDHHPdf.py .
+	cp /Users/mariapaulaherrero/Desktop/entrega/python/categorizarDDHHRetrieveData.py .
+	
+4) Abrir rapidMiner en el proceso clasificadorDDHHBalanceadoDataUso y configurar los path de los script en python
+   Configurar tambien que use python3
+   Luego correrlo
+
+5) Para crear los pdfs, hay que ir al directorio donde estan instalados los archivos python:	
+	cd /Users/mariapaulaherrero/Desktop/MDproyecto/
+   Y correr el script:
+	python3 categorizarDDHHPdf.py

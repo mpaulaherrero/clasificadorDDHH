@@ -1,0 +1,44 @@
+pip3 install textblob
+pip3 install -U nltk
+#pip3 install nltk stopwords
+python3 downloadStopwords.py 
+#pip3 install tfidf
+pip3 install scikit-learn
+
+
+Ultimate guide to deal with Text Data (using Python) - for Data Scientists & Engineers
+	https://www.analyticsvidhya.com/blog/2018/02/the-different-methods-deal-text-data-predictive-python/
+
+How To Implement Naive Bayes From Scratch in Python
+	https://machinelearningmastery.com/naive-bayes-classifier-scratch-python/
+
+Guardar modelo en python
+	#pip3 install sklearn-pmml-model
+	#Python library for converting Scikit-Learn pipelines to PMML 
+	#pip3 install --user --upgrade git+https://github.com/jpmml/sklearn2pmml.git
+	
+	
+Para guardar modelo y correrlo en Python:
+	agregar en RapidMiner PMML Extension
+	
+	instalar openscoring (no se puede leer el PMML da un error, falta el BayesInputs)
+		https://github.com/openscoring/openscoring
+		
+		1) bajar https://github.com/openscoring/openscoring/releases/download/1.4.5/openscoring-server-executable-1.4.5.jar
+		2) correr la aplicación:
+			java -jar openscoring-server-executable-1.4.5.jar
+		3) Deploy the model (NO, eso se hace en el codigo)
+			curl -X PUT --data-binary @clasificadorDDHH.pmml -H "Content-type: text/xml" http://localhost:8080/openscoring/model/clasificadorDDHH
+			
+			ERROR: org.jpmml.evaluator.MissingElementException: Required element BayesInputs/BayesInput is not defined
+			
+		4) Probar
+			curl -XPUT --data-binary @DecisionTreeIris.pmml -H "Content-type: text/xml" http://localhost:8080/openscoring/model/DecisionTreeIris
+			curl -XGET http://localhost:8080/openscoring/model
+			curl -XGET http://localhost:8080/openscoring/model/DecisionTreeIris
+			curl -X POST --data-binary @EvaluationRequest.json -H "Content-type: application/json" http://localhost:8080/openscoring/model/DecisionTreeIris
+	
+	Usar openscoring en python
+		https://github.com/openscoring/openscoring-python
+		
+	 pip3 install --user --upgrade git+https://github.com/openscoring/openscoring-python.git

@@ -5,12 +5,17 @@ import datetime
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-csvFile = "/Users/mariapaulaherrero/Desktop/MDproyecto/dataPDF/data.csv"
-jsonFile = "/Users/mariapaulaherrero/Desktop/MDproyecto/dataPDF/data.json"
-csvFileTexto = "/Users/mariapaulaherrero/Desktop/MDproyecto/dataPDF/dataTexto.csv"
+csvFile = "/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/dataPDF/data.csv"
+jsonFile = "/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/dataPDF/data.json"
+csvFileTexto = "/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/dataPDF/dataTexto.csv"
 
 row = {"id": 0, "idPeriodico": 0, "periodico":"", "url":"", "fecha":"", "fechaPublicacion":"", "autor":"", "seccion":"", "palabrasClaves":"", "titular" : "", "subtitular" : "", "imagen":"", "contenido":"", "derecho":"", "otrosDerechos":"", "subDerechos":"", "EP":""}
 rows = []
+
+def cleanLine(lineText):
+    lineText = lineText.replace('\n',' ').replace('\r',' ').replace(';',',').replace(u"\u037E",',').replace(u"\xa0",' ').replace(u"\u25A0",' ').replace("xa0",' ').replace("'",'"')
+    #print(lineText)
+    return lineText
 
 with open(csvFile, 'r') as readFile:
     reader = csv.reader(readFile, delimiter=';')
@@ -103,6 +108,7 @@ for line in lines:
             for line in lines:
                 lineText = line.text.replace("Leer más aquí ","").strip()
                 if lineText:
+                    lineText = cleanLine(lineText)
                     content.append(lineText)   
             #newRow["contenido"] = "\n".join(content)      
             newRow["contenido"] = content      
@@ -135,6 +141,7 @@ for line in lines:
                     if firstLine and textsB:
                         lineText = textsB + lineText
                         firstLine = False
+                    lineText = cleanLine(lineText)
                     content.append(lineText)
             lines = soup.find('div', attrs={'id': 'cuerpo'}).find_all('div', recursive=False)
             #print(lines)
@@ -145,6 +152,7 @@ for line in lines:
                 if not twitter:
                     lineText = line.text.strip()
                     if lineText:
+                        lineText = cleanLine(lineText)
                         content.append(lineText)
                 else:
                     #veo si hay otros div dentro de esta linea con contenido
@@ -154,11 +162,13 @@ for line in lines:
                         if not twitter2:
                             lineText2 = line2.text.strip()
                             if lineText2:
+                                lineText2 = cleanLine(lineText2)
                                 content.append(lineText2)
             lines = soup.find('div', attrs={'id': 'cuerpo'}).find_all('p', recursive=False) 
             for line in lines:           
                 lineText = line.text.strip()
                 if lineText:
+                    lineText = cleanLine(lineText)
                     content.append(lineText)
             newRow["idPeriodico"] = partesUrl[4]        
             newRow["fechaPublicacion"] = fechaPub
@@ -176,6 +186,7 @@ for line in lines:
                 newRow["contenido"] = content
     except:
         print("error conectando") 
+    newRow["contenido"] = "|".join(newRow["contenido"])
     rows.append(newRow)
     #print("listo: " , url)
     count += 1
