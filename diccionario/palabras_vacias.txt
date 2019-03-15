@@ -5,6 +5,7 @@ aca
 acaso
 adelante
 ademas
+además
 adentro
 afuera
 ah
@@ -32,6 +33,13 @@ ambos
 alrededor
 ante
 antes
+año
+años
+después
+despues
+país
+pais
+web
 apenas
 aquel
 aquella
@@ -697,3 +705,6 @@ ya
 yo
 z
 º
+ª
+ñ
+x
