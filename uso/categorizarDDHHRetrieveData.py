@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 periodicos = [{"id": "EN","url": "http://www.el-nacional.com/ultimo-minuto", "lastId":0}, {"id": "EU","url": "http://www.eluniversal.com/buscador", "lastId":0}]
 row = {"idPeriodico": 0, "periodico":"", "url":"", "fecha":"", "fechaPublicacion":"", "autor":"", "seccion":"", "palabrasClaves":"", "titular" : "", "subtitular" : "", "imagen":"", "contenido":"", "derecho":""}
-categoriesExcluded = ["Entretenimiento", "Arte", "EE UU", "Politica", "entretenimiento", "internacional", "el-universal", "politica", "Fútbol", "Beisbol", "doblevia", "deportes", "Cine", "BBC Mundo", "Música", "Ciencia y Tecnología", "estilo-de-vida", "Europa", "España, Mundo", "Motores"]
+categoriesExcluded = ["Entretenimiento", "Arte", "EE UU", "Politica", "entretenimiento", "internacional", "el-universal", "politica", "Fútbol", "Beisbol", "doblevia", "deportes", "Deportes", "Cine", "BBC Mundo", "Música", "Ciencia y Tecnología", "estilo-de-vida", "Europa", "España, Mundo", "Motores"]
 
 def cleanLine(lineText):
     lineText = lineText.replace('\n',' ').replace('\r',' ').replace(';',',').replace(u"\u037E",',').replace(u"\xa0",' ').replace(u"\u25A0",' ').replace("xa0",' ').replace("'",'"')
