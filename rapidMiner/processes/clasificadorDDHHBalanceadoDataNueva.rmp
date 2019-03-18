@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.2.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.2.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="text:process_document_from_file" compatibility="8.1.000" expanded="true" height="82" name="Process Documents from Files" width="90" x="45" y="34">
+        <list key="text_directories">
+          <parameter key="1.1" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/1.1"/>
+          <parameter key="1.10" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/1.10"/>
+          <parameter key="1.2" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/1.2"/>
+          <parameter key="1.3" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/1.3"/>
+          <parameter key="12" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/12"/>
+          <parameter key="18" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/18"/>
+          <parameter key="2.1" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/2.1"/>
+          <parameter key="2.10" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/2.10"/>
+          <parameter key="2.2" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/2.2"/>
+          <parameter key="2.3" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/2.3"/>
+          <parameter key="2.6" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/2.6"/>
+          <parameter key="2.8" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/2.8"/>
+          <parameter key="3.2" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/3.2"/>
+          <parameter key="5" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/5"/>
+          <parameter key="CONTEXTO" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/data/clasificacion/categorias/CONTEXTO"/>
+        </list>
+        <parameter key="file_pattern" value="*"/>
+        <parameter key="extract_text_only" value="true"/>
+        <parameter key="use_file_extension_as_type" value="true"/>
+        <parameter key="content_type" value="txt"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="create_word_vector" value="true"/>
+        <parameter key="vector_creation" value="TF-IDF"/>
+        <parameter key="add_meta_information" value="true"/>
+        <parameter key="keep_text" value="false"/>
+        <parameter key="prune_method" value="none"/>
+        <parameter key="prune_below_percent" value="3.0"/>
+        <parameter key="prune_above_percent" value="30.0"/>
+        <parameter key="prune_below_rank" value="0.05"/>
+        <parameter key="prune_above_rank" value="0.95"/>
+        <parameter key="datamanagement" value="double_sparse_array"/>
+        <parameter key="data_management" value="auto"/>
+        <process expanded="true">
+          <operator activated="true" class="text:tokenize" compatibility="8.1.000" expanded="true" height="68" name="Tokenize (2)" width="90" x="112" y="34">
+            <parameter key="mode" value="non letters"/>
+            <parameter key="characters" value=".:"/>
+            <parameter key="language" value="English"/>
+            <parameter key="max_token_length" value="3"/>
+            <description align="center" color="transparent" colored="false" width="126">Identificar las partes en las cuales se puede dividir un texto</description>
+          </operator>
+          <operator activated="true" class="text:transform_cases" compatibility="8.1.000" expanded="true" height="68" name="Transform Cases (2)" width="90" x="246" y="34">
+            <parameter key="transform_to" value="lower case"/>
+            <description align="center" color="transparent" colored="false" width="126">Pasar todas las palabras a min&amp;#250;sculas</description>
+          </operator>
+          <operator activated="true" class="text:filter_stopwords_dictionary" compatibility="8.1.000" expanded="true" height="82" name="Filter Stopwords (2)" width="90" x="380" y="34">
+            <parameter key="file" value="/Users/mariapaulaherrero/Documents/documentosPersonal/My Documents/ucv/maestria/MD/MDproyecto/codigo/diccionario/palabras_vacias.txt"/>
+            <parameter key="case_sensitive" value="false"/>
+            <parameter key="encoding" value="UTF-8"/>
+            <description align="center" color="transparent" colored="false" width="126">Eliminaci&amp;#243;n de palabras no informativas (stop words) y signos de puntuaci&amp;#243;n</description>
+          </operator>
+          <operator activated="true" class="text:stem_snowball" compatibility="8.1.000" expanded="true" height="68" name="Stem (2)" width="90" x="514" y="34">
+            <parameter key="language" value="Spanish"/>
+            <description align="center" color="transparent" colored="false" width="126">Lematizaci&amp;#243;n aplicando el algoritmo Porter Stemmer para el ingles</description>
+          </operator>
+          <connect from_port="document" to_op="Tokenize (2)" to_port="document"/>
+          <connect from_op="Tokenize (2)" from_port="document" to_op="Transform Cases (2)" to_port="document"/>
+          <connect from_op="Transform Cases (2)" from_port="document" to_op="Filter Stopwords (2)" to_port="document"/>
+          <connect from_op="Filter Stopwords (2)" from_port="document" to_op="Stem (2)" to_port="document"/>
+          <connect from_op="Stem (2)" from_port="document" to_port="document 1"/>
+          <portSpacing port="source_document" spacing="0"/>
+          <portSpacing port="sink_document 1" spacing="0"/>
+          <portSpacing port="sink_document 2" spacing="0"/>
+        </process>
+        <description align="center" color="transparent" colored="false" width="126">Procesar los txt seg&amp;#250;n categoria</description>
+      </operator>
+      <operator activated="true" class="store" compatibility="9.2.000" expanded="true" height="68" name="Store (2)" width="90" x="246" y="187">
+        <parameter key="repository_entry" value="../data/noticiasDDHHBlanceadoDataNuevaListaWords"/>
+        <description align="center" color="transparent" colored="false" width="126">Guarda el listado de atributos</description>
+      </operator>
+      <operator activated="true" class="store" compatibility="9.2.000" expanded="true" height="68" name="Store" width="90" x="246" y="34">
+        <parameter key="repository_entry" value="../data/noticiasDDHHBlanceadoDataNueva"/>
+        <description align="center" color="transparent" colored="false" width="126">Guardar los datos en un archivo para futuros usos&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.2.000" expanded="true" height="103" name="Multiply" width="90" x="380" y="34"/>
+      <operator activated="true" class="numerical_to_binominal" compatibility="9.2.000" expanded="true" height="82" name="Numerical to Binominal" width="90" x="648" y="340">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="min" value="0.0"/>
+        <parameter key="max" value="0.0"/>
+      </operator>
+      <operator activated="true" breakpoints="after" class="concurrency:fp_growth" compatibility="9.2.000" expanded="true" height="82" name="FP-Growth" width="90" x="916" y="340">
+        <parameter key="input_format" value="items in dummy coded columns"/>
+        <parameter key="item_separators" value="|"/>
+        <parameter key="use_quotes" value="false"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="trim_item_names" value="true"/>
+        <parameter key="min_requirement" value="frequency"/>
+        <parameter key="min_support" value="0.95"/>
+        <parameter key="min_frequency" value="100"/>
+        <parameter key="min_items_per_itemset" value="1"/>
+        <parameter key="max_items_per_itemset" value="0"/>
+        <parameter key="max_number_of_itemsets" value="1000000"/>
+        <parameter key="find_min_number_of_itemsets" value="true"/>
+        <parameter key="min_number_of_itemsets" value="100"/>
+        <parameter key="max_number_of_retries" value="15"/>
+        <parameter key="requirement_decrease_factor" value="0.9"/>
+        <enumeration key="must_contain_list"/>
+      </operator>
+      <operator activated="true" class="create_association_rules" compatibility="9.2.000" expanded="true" height="82" name="Create Association Rules" width="90" x="1184" y="340">
+        <parameter key="criterion" value="confidence"/>
+        <parameter key="min_confidence" value="0.8"/>
+        <parameter key="min_criterion_value" value="0.8"/>
+        <parameter key="gain_theta" value="2.0"/>
+        <parameter key="laplace_k" value="1.0"/>
+      </operator>
+      <operator activated="true" class="weight_by_information_gain" compatibility="9.2.000" expanded="true" height="82" name="Weight by Information Gain" width="90" x="581" y="34">
+        <parameter key="normalize_weights" value="false"/>
+        <parameter key="sort_weights" value="true"/>
+        <parameter key="sort_direction" value="descending"/>
+      </operator>
+      <operator activated="true" class="select_by_weights" compatibility="9.2.000" expanded="true" height="103" name="Select by Weights" width="90" x="715" y="34">
+        <parameter key="weight_relation" value="greater equals"/>
+        <parameter key="weight" value="0.03"/>
+        <parameter key="k" value="10"/>
+        <parameter key="p" value="0.5"/>
+        <parameter key="deselect_unknown" value="true"/>
+        <parameter key="use_absolute_weights" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">Se seleccionan los atributos con un peso mayor o igual a un umbral definido por el experto</description>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.2.000" expanded="true" height="145" name="Cross Validation" width="90" x="849" y="136">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="naive_bayes" compatibility="9.2.000" expanded="true" height="82" name="Naive Bayes" width="90" x="112" y="34">
+            <parameter key="laplace_correction" value="true"/>
+            <description align="center" color="transparent" colored="false" width="126">Se aplica el algoritmo de bayes ingenuo para la generaci&amp;#243;n del modelo</description>
+          </operator>
+          <connect from_port="training set" to_op="Naive Bayes" to_port="training set"/>
+          <connect from_op="Naive Bayes" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.2.000" expanded="true" height="82" name="Apply Model" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+            <description align="center" color="transparent" colored="false" width="126">Se le aplica la data de prueba al modelo obtenido</description>
+          </operator>
+          <operator activated="true" class="performance" compatibility="9.2.000" expanded="true" height="82" name="Performance" width="90" x="246" y="34">
+            <parameter key="use_example_weights" value="true"/>
+            <description align="center" color="transparent" colored="false" width="126">Se evalua estad&amp;#237;sticamente el modelo</description>
+          </operator>
+          <connect from_port="model" to_op="Apply Model" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
+          <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+          <connect from_op="Performance" from_port="performance" to_port="performance 1"/>
+          <connect from_op="Performance" from_port="example set" to_port="test set results"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="store" compatibility="9.2.000" expanded="true" height="68" name="Store (3)" width="90" x="983" y="34">
+        <parameter key="repository_entry" value="../data/noticiasDDHHModeloBalanceadoDataNueva"/>
+        <description align="center" color="transparent" colored="false" width="126">Se guarda el modelo para pruebas de test</description>
+      </operator>
+      <connect from_op="Process Documents from Files" from_port="example set" to_op="Store" to_port="input"/>
+      <connect from_op="Process Documents from Files" from_port="word list" to_op="Store (2)" to_port="input"/>
+      <connect from_op="Store" from_port="through" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Weight by Information Gain" to_port="example set"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="Numerical to Binominal" to_port="example set input"/>
+      <connect from_op="Numerical to Binominal" from_port="example set output" to_op="FP-Growth" to_port="example set"/>
+      <connect from_op="FP-Growth" from_port="frequent sets" to_op="Create Association Rules" to_port="item sets"/>
+      <connect from_op="Create Association Rules" from_port="rules" to_port="result 6"/>
+      <connect from_op="Create Association Rules" from_port="item sets" to_port="result 7"/>
+      <connect from_op="Weight by Information Gain" from_port="weights" to_op="Select by Weights" to_port="weights"/>
+      <connect from_op="Weight by Information Gain" from_port="example set" to_op="Select by Weights" to_port="example set input"/>
+      <connect from_op="Select by Weights" from_port="example set output" to_op="Cross Validation" to_port="example set"/>
+      <connect from_op="Select by Weights" from_port="weights" to_port="result 3"/>
+      <connect from_op="Cross Validation" from_port="model" to_op="Store (3)" to_port="input"/>
+      <connect from_op="Cross Validation" from_port="example set" to_port="result 2"/>
+      <connect from_op="Cross Validation" from_port="test result set" to_port="result 4"/>
+      <connect from_op="Cross Validation" from_port="performance 1" to_port="result 5"/>
+      <connect from_op="Store (3)" from_port="through" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+      <portSpacing port="sink_result 6" spacing="0"/>
+      <portSpacing port="sink_result 7" spacing="0"/>
+      <portSpacing port="sink_result 8" spacing="0"/>
+    </process>
+  </operator>
+</process>
